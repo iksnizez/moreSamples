@@ -1,4 +1,0 @@
-projects to finish and add to git:
-	- Reds Oct. 21 app
-	- SIS bball research
-		-part 1 C & D
