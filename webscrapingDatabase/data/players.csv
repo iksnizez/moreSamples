@@ -1,0 +1,498 @@
+,player,age,team,position,marketValue
+0,Thibaut Courtois,30,Real Madrid,gk,66.0
+1,Andriy Lunin,23,Real Madrid,gk,2.75
+2,Éder Militão,24,Real Madrid,defender,66.0
+3,David Alaba,30,Real Madrid,defender,60.5
+4,Antonio Rüdiger,29,Real Madrid,defender,44.0
+5,Nacho Fernández,32,Real Madrid,defender,7.7
+6,Jesús Vallejo,25,Real Madrid,defender,3.3
+7,Ferland Mendy,27,Real Madrid,defender,44.0
+8,Daniel Carvajal,30,Real Madrid,defender,19.8
+9,Álvaro Odriozola,26,Real Madrid,defender,11.0
+10,Aurélien Tchouameni,22,Real Madrid,midfielder,88.0
+11,Federico Valverde,24,Real Madrid,midfielder,88.0
+12,Eduardo Camavinga,19,Real Madrid,midfielder,60.5
+13,Toni Kroos,32,Real Madrid,midfielder,22.0
+14,Dani Ceballos,26,Real Madrid,midfielder,15.4
+15,Luka Modric,37,Real Madrid,midfielder,11.0
+16,Vinicius Junior,22,Real Madrid,forward,132.0
+17,Eden Hazard,31,Real Madrid,forward,13.2
+18,Rodrygo,21,Real Madrid,forward,77.0
+19,Marco Asensio,26,Real Madrid,forward,38.5
+20,Lucas Vázquez,31,Real Madrid,forward,13.2
+21,Karim Benzema,34,Real Madrid,forward,33.0
+22,Mariano Díaz,29,Real Madrid,forward,4.4
+23,Marc-André ter Stegen,30,FC Barcelona,gk,33.0
+24,Iñaki Peña,23,FC Barcelona,gk,4.62
+25,Arnau Tenas,21,FC Barcelona,gk,1.65
+26,Ronald Araújo,23,FC Barcelona,defender,66.0
+27,Jules Koundé,23,FC Barcelona,defender,66.0
+28,Andreas Christensen,26,FC Barcelona,defender,38.5
+29,Eric García,21,FC Barcelona,defender,19.8
+30,Gerard Piqué,35,FC Barcelona,defender,3.3
+31,Marcos Alonso,31,FC Barcelona,defender,13.2
+32,Jordi Alba,33,FC Barcelona,defender,9.9
+33,Alejandro Balde,19,FC Barcelona,defender,8.8
+34,Héctor Bellerín,27,FC Barcelona,defender,22.0
+35,Sergi Roberto,30,FC Barcelona,defender,6.6
+36,Sergio Busquets,34,FC Barcelona,midfielder,9.9
+37,Pedri,19,FC Barcelona,midfielder,99.0
+38,Gavi,18,FC Barcelona,midfielder,77.0
+39,Frenkie de Jong,25,FC Barcelona,midfielder,66.0
+40,Franck Kessié,25,FC Barcelona,midfielder,49.5
+41,Pablo Torre,19,FC Barcelona,midfielder,3.3
+42,Ansu Fati,20,FC Barcelona,forward,66.0
+43,Ferran Torres,22,FC Barcelona,forward,44.0
+44,Ousmane Dembélé,25,FC Barcelona,forward,55.0
+45,Raphinha,25,FC Barcelona,forward,55.0
+46,Robert Lewandowski,34,FC Barcelona,forward,49.5
+47,Memphis Depay,28,FC Barcelona,forward,27.5
+48,Jan Oblak,29,Atlético de Madrid,gk,44.0
+49,Ivo Grbic,26,Atlético de Madrid,gk,3.85
+50,José María Giménez,27,Atlético de Madrid,defender,49.5
+51,Mario Hermoso,27,Atlético de Madrid,defender,19.8
+52,Stefan Savic,31,Atlético de Madrid,defender,15.4
+53,Felipe,33,Atlético de Madrid,defender,6.6
+54,Sergio Reguilón,25,Atlético de Madrid,defender,27.5
+55,Reinildo Mandava,28,Atlético de Madrid,defender,27.5
+56,Nahuel Molina,24,Atlético de Madrid,defender,22.0
+57,Geoffrey Kondogbia,29,Atlético de Madrid,midfielder,22.0
+58,Axel Witsel,33,Atlético de Madrid,midfielder,5.5
+59,Marcos Llorente,27,Atlético de Madrid,midfielder,44.0
+60,Rodrigo de Paul,28,Atlético de Madrid,midfielder,38.5
+61,Koke,30,Atlético de Madrid,midfielder,22.0
+62,Saúl Ñíguez,27,Atlético de Madrid,midfielder,22.0
+63,Thomas Lemar,26,Atlético de Madrid,midfielder,38.5
+64,Yannick Carrasco,29,Atlético de Madrid,forward,44.0
+65,Ángel Correa,27,Atlético de Madrid,forward,44.0
+66,João Félix,22,Atlético de Madrid,forward,77.0
+67,Antoine Griezmann,31,Atlético de Madrid,forward,38.5
+68,Matheus Cunha,23,Atlético de Madrid,forward,33.0
+69,Álvaro Morata,30,Atlético de Madrid,forward,27.5
+70,Álex Remiro,27,Real Sociedad,gk,24.2
+71,Andoni Zubiaurre,25,Real Sociedad,gk,0.33
+72,Robin Le Normand,25,Real Sociedad,defender,38.5
+73,Aritz Elustondo,28,Real Sociedad,defender,22.0
+74,Igor Zubeldia,25,Real Sociedad,defender,16.5
+75,Jon Pacheco,21,Real Sociedad,defender,1.1
+76,Aihen Muñoz,25,Real Sociedad,defender,6.6
+77,Diego Rico,29,Real Sociedad,defender,3.3
+78,Andoni Gorosabel,26,Real Sociedad,defender,11.0
+79,Álex Sola,23,Real Sociedad,defender,1.65
+80,Martín Zubimendi,23,Real Sociedad,midfielder,38.5
+81,Asier Illarramendi,32,Real Sociedad,midfielder,3.3
+82,Mikel Merino,26,Real Sociedad,midfielder,55.0
+83,Ander Guevara,25,Real Sociedad,midfielder,5.5
+84,Beñat Turrientes,20,Real Sociedad,midfielder,3.3
+85,Brais Méndez,25,Real Sociedad,midfielder,24.2
+86,David Silva,36,Real Sociedad,midfielder,4.4
+87,Robert Navarro,20,Real Sociedad,midfielder,3.3
+88,Mikel Oyarzabal,25,Real Sociedad,forward,66.0
+89,Ander Barrenetxea,20,Real Sociedad,forward,9.9
+90,Martín Merquelanz,27,Real Sociedad,forward,1.65
+91,Takefusa Kubo,21,Real Sociedad,forward,9.9
+92,Umar Sadiq,25,Real Sociedad,forward,19.8
+93,Momo Cho,18,Real Sociedad,forward,16.5
+94,Alexander Sörloth,26,Real Sociedad,forward,11.0
+95,Carlos Fernández,26,Real Sociedad,forward,5.5
+96,Jon Karrikaburu,20,Real Sociedad,forward,5.5
+97,Gerónimo Rulli,30,Villarreal CF,gk,6.6
+98,Filip Jörgensen,20,Villarreal CF,gk,1.1
+99,Pepe Reina,40,Villarreal CF,gk,0.77
+100,Pau Torres,25,Villarreal CF,defender,55.0
+101,Jorge Cuenca,22,Villarreal CF,defender,8.8
+102,Aïssa Mandi,31,Villarreal CF,defender,6.6
+103,Raúl Albiol,37,Villarreal CF,defender,3.3
+104,Alfonso Pedraza,26,Villarreal CF,defender,19.8
+105,Johan Mojica,30,Villarreal CF,defender,5.5
+106,Alberto Moreno,30,Villarreal CF,defender,5.5
+107,Juan Foyth,24,Villarreal CF,defender,27.5
+108,Kiko Femenía,31,Villarreal CF,defender,2.75
+109,Francis Coquelin,31,Villarreal CF,midfielder,5.5
+110,Étienne Capoue,34,Villarreal CF,midfielder,3.3
+111,Giovani Lo Celso,26,Villarreal CF,midfielder,24.2
+112,Manu Trigueros,31,Villarreal CF,midfielder,13.2
+113,Dani Parejo,33,Villarreal CF,midfielder,9.9
+114,Manu Morlanes,23,Villarreal CF,midfielder,5.5
+115,Álex Baena,21,Villarreal CF,forward,11.0
+116,Yéremy Pino,20,Villarreal CF,forward,44.0
+117,Samuel Chukwueze,23,Villarreal CF,forward,22.0
+118,Nicolas Jackson,21,Villarreal CF,forward,11.0
+119,Arnaut Danjuma,25,Villarreal CF,forward,55.0
+120,Gerard Moreno,30,Villarreal CF,forward,44.0
+121,José Luis Morales,35,Villarreal CF,forward,4.4
+122,Bono,31,Sevilla FC,gk,19.8
+123,Marko Dmitrović,30,Sevilla FC,gk,5.5
+124,Marcão,26,Sevilla FC,defender,15.4
+125,Tanguy Nianzou,20,Sevilla FC,defender,9.9
+126,Karim Rekik,27,Sevilla FC,defender,5.5
+127,Alex Telles,29,Sevilla FC,defender,19.8
+128,Marcos Acuña,31,Sevilla FC,defender,19.8
+129,Gonzalo Montiel,25,Sevilla FC,defender,15.4
+130,José Ángel Carmona,20,Sevilla FC,defender,5.5
+131,Jesús Navas,36,Sevilla FC,defender,3.3
+132,Nemanja Gudelj,30,Sevilla FC,midfielder,4.4
+133,Fernando,35,Sevilla FC,midfielder,4.4
+134,Joan Jordán,28,Sevilla FC,midfielder,19.8
+135,Óliver Torres,27,Sevilla FC,midfielder,8.8
+136,Ivan Rakitic,34,Sevilla FC,midfielder,7.7
+137,Thomas Delaney,31,Sevilla FC,midfielder,7.7
+138,Isco,30,Sevilla FC,midfielder,8.25
+139,Papu Gómez,34,Sevilla FC,forward,6.6
+140,Tecatito,29,Sevilla FC,forward,19.8
+141,Erik Lamela,30,Sevilla FC,forward,17.6
+142,Suso,28,Sevilla FC,forward,11.0
+143,Adnan Januzaj,27,Sevilla FC,forward,9.9
+144,Youssef En-Nesyri,25,Sevilla FC,forward,22.0
+145,Kasper Dolberg,25,Sevilla FC,forward,18.7
+146,Rafa Mir,25,Sevilla FC,forward,17.6
+147,Rui Silva,28,Real Betis Balompié,gk,16.5
+148,Dani Martín,24,Real Betis Balompié,gk,2.2
+149,Claudio Bravo,39,Real Betis Balompié,gk,1.1
+150,Luiz Felipe,25,Real Betis Balompié,defender,19.8
+151,Edgar González,25,Real Betis Balompié,defender,8.8
+152,Germán Pezzella,31,Real Betis Balompié,defender,5.5
+153,Víctor Ruiz,33,Real Betis Balompié,defender,1.65
+154,Álex Moreno,29,Real Betis Balompié,defender,19.8
+155,Juan Miranda,22,Real Betis Balompié,defender,5.5
+156,Youssouf Sabaly,29,Real Betis Balompié,defender,3.3
+157,Aitor Ruibal,26,Real Betis Balompié,defender,3.3
+158,Martín Montoya,31,Real Betis Balompié,defender,1.65
+159,Guido Rodríguez,28,Real Betis Balompié,midfielder,27.5
+160,William Carvalho,30,Real Betis Balompié,midfielder,17.6
+161,Paul Akouokou,24,Real Betis Balompié,midfielder,4.4
+162,Andrés Guardado,36,Real Betis Balompié,midfielder,1.65
+163,Víctor Camarasa,28,Real Betis Balompié,midfielder,1.1
+164,Nabil Fekir,29,Real Betis Balompié,midfielder,44.0
+165,Sergio Canales,31,Real Betis Balompié,midfielder,22.0
+166,Rodri Sánchez,22,Real Betis Balompié,midfielder,7.7
+167,Juanmi,29,Real Betis Balompié,forward,16.5
+168,Luiz Henrique,21,Real Betis Balompié,forward,13.2
+169,Joaquín,41,Real Betis Balompié,forward,1.65
+170,Borja Iglesias,29,Real Betis Balompié,forward,22.0
+171,Willian José,30,Real Betis Balompié,forward,13.2
+172,Loren Morón,28,Real Betis Balompié,forward,4.4
+173,Giorgi Mamardashvili,22,Valencia CF,gk,22.0
+174,Jaume Doménech,31,Valencia CF,gk,2.2
+175,Iago Herrerín,34,Valencia CF,gk,0.55
+176,Cristian Rivero,24,Valencia CF,gk,0.22
+177,Mouctar Diakhaby,25,Valencia CF,defender,8.8
+178,Gabriel Paulista,31,Valencia CF,defender,5.5
+179,Cenk Özkacar,22,Valencia CF,defender,2.2
+180,Eray Cömert,24,Valencia CF,defender,2.2
+181,Cristhian Mosquera,18,Valencia CF,defender,1.1
+182,José Gayà,27,Valencia CF,defender,38.5
+183,Jesús Vázquez,19,Valencia CF,defender,5.5
+184,Toni Lato,24,Valencia CF,defender,2.75
+185,Thierry Correia,23,Valencia CF,defender,13.2
+186,Dimitri Foulquier,29,Valencia CF,defender,3.3
+187,Hugo Guillamón,22,Valencia CF,midfielder,27.5
+188,Yunus Musah,19,Valencia CF,midfielder,27.5
+189,Nico González,20,Valencia CF,midfielder,22.0
+190,Ilaix Moriba,19,Valencia CF,midfielder,9.9
+191,André Almeida,22,Valencia CF,midfielder,8.8
+192,Justin Kluivert,23,Valencia CF,forward,16.5
+193,Samuel Lino,22,Valencia CF,forward,13.2
+194,Samu Castillejo,27,Valencia CF,forward,6.6
+195,Hugo Duro,22,Valencia CF,forward,11.0
+196,Marcos André,26,Valencia CF,forward,5.5
+197,Edinson Cavani,35,Valencia CF,forward,4.4
+198,Unai Simón,25,Athletic Bilbao,gk,27.5
+199,Julen Agirrezabala,21,Athletic Bilbao,gk,5.5
+200,Iñigo Martínez,31,Athletic Bilbao,defender,22.0
+201,Dani Vivian,23,Athletic Bilbao,defender,16.5
+202,Yeray Álvarez,27,Athletic Bilbao,defender,14.3
+203,Aitor Paredes,22,Athletic Bilbao,defender,0.44
+204,Yuri Berchiche,32,Athletic Bilbao,defender,3.3
+205,Mikel Balenziaga,34,Athletic Bilbao,defender,1.32
+206,Iñigo Lekue,29,Athletic Bilbao,defender,3.3
+207,Ander Capa,30,Athletic Bilbao,defender,2.75
+208,Óscar de Marcos,33,Athletic Bilbao,defender,1.98
+209,Mikel Vesga,29,Athletic Bilbao,midfielder,3.3
+210,Unai Vencedor,21,Athletic Bilbao,midfielder,22.0
+211,Ander Herrera,33,Athletic Bilbao,midfielder,8.8
+212,Oier Zarraga,23,Athletic Bilbao,midfielder,3.85
+213,Dani García,32,Athletic Bilbao,midfielder,3.3
+214,Oihan Sancet,22,Athletic Bilbao,midfielder,22.0
+215,Iker Muniain,29,Athletic Bilbao,midfielder,17.6
+216,Jon Morcillo,24,Athletic Bilbao,forward,4.4
+217,Nico Williams,20,Athletic Bilbao,forward,24.2
+218,Álex Berenguer,27,Athletic Bilbao,forward,16.5
+219,Iñaki Williams,28,Athletic Bilbao,forward,27.5
+220,Asier Villalibre,25,Athletic Bilbao,forward,3.3
+221,Raúl García,36,Athletic Bilbao,forward,2.75
+222,Gorka Guruzeta,26,Athletic Bilbao,forward,2.2
+223,David Soria,29,Getafe CF,gk,8.8
+224,Kiko Casilla,36,Getafe CF,gk,0.77
+225,Diego Conde,24,Getafe CF,gk,0.33
+226,Djené,30,Getafe CF,defender,8.8
+227,Domingos Duarte,27,Getafe CF,defender,8.8
+228,Omar Alderete,25,Getafe CF,defender,7.7
+229,Gastón Álvarez,22,Getafe CF,defender,4.4
+230,Stefan Mitrović,32,Getafe CF,defender,1.98
+231,Jordan Amavi,28,Getafe CF,defender,5.5
+232,Fabrizio Angileri,28,Getafe CF,defender,3.3
+233,Juan Iglesias,24,Getafe CF,defender,2.75
+234,Damián Suárez,34,Getafe CF,defender,1.65
+235,Nemanja Maksimović,27,Getafe CF,midfielder,13.2
+236,Mauro Arambarri,27,Getafe CF,midfielder,16.5
+237,Carles Aleñá,24,Getafe CF,midfielder,9.9
+238,Luis Milla,28,Getafe CF,midfielder,4.4
+239,Jaime Seoane,25,Getafe CF,midfielder,4.4
+240,Ángel Algobia,23,Getafe CF,midfielder,0.55
+241,Portu,30,Getafe CF,forward,6.6
+242,Enes Ünal,25,Getafe CF,forward,27.5
+243,Borja Mayoral,25,Getafe CF,forward,9.9
+244,Munir El Haddadi,27,Getafe CF,forward,6.6
+245,Jaime Mata,34,Getafe CF,forward,3.3
+246,Juanmi Latasa,21,Getafe CF,forward,1.1
+247,Agustín Marchesín,34,Celta de Vigo,gk,4.4
+248,Iván Villar,25,Celta de Vigo,gk,1.32
+249,Unai Núñez,25,Celta de Vigo,defender,9.9
+250,Joseph Aidoo,27,Celta de Vigo,defender,7.7
+251,Óscar Mingueza,23,Celta de Vigo,defender,5.5
+252,Carlos Domínguez,21,Celta de Vigo,defender,1.1
+253,Javi Galán,27,Celta de Vigo,defender,13.2
+254,Hugo Mallo,31,Celta de Vigo,defender,4.4
+255,Kevin Vázquez,29,Celta de Vigo,defender,2.2
+256,Renato Tapia,27,Celta de Vigo,midfielder,11.0
+257,Fran Beltrán,23,Celta de Vigo,midfielder,16.5
+258,Williot Swedberg,18,Celta de Vigo,midfielder,5.5
+259,Luca de la Torre,24,Celta de Vigo,midfielder,2.2
+260,Óscar Rodríguez,24,Celta de Vigo,midfielder,9.9
+261,Denis Suárez,28,Celta de Vigo,midfielder,5.5
+262,Gabri Veiga,20,Celta de Vigo,midfielder,3.3
+263,Franco Cervi,28,Celta de Vigo,forward,5.5
+264,Carles Pérez,24,Celta de Vigo,forward,6.6
+265,Augusto Solari,30,Celta de Vigo,forward,2.75
+266,Jörgen Strand Larsen,22,Celta de Vigo,forward,12.1
+267,Iago Aspas,35,Celta de Vigo,forward,7.7
+268,Gonçalo Paciência,28,Celta de Vigo,forward,3.3
+269,Sergio Herrera,29,CA Osasuna,gk,8.8
+270,Aitor Fernández,31,CA Osasuna,gk,2.75
+271,Juan Pérez,26,CA Osasuna,gk,0.66
+272,David García,28,CA Osasuna,defender,22.0
+273,Unai García,30,CA Osasuna,defender,1.65
+274,Aridane Hernández,33,CA Osasuna,defender,1.65
+275,Manu Sánchez,22,CA Osasuna,defender,11.0
+276,Juan Cruz,30,CA Osasuna,defender,2.2
+277,Nacho Vidal,27,CA Osasuna,defender,5.5
+278,Rubén Peña,31,CA Osasuna,defender,2.75
+279,Lucas Torró,28,CA Osasuna,midfielder,5.5
+280,Jon Moncayola,24,CA Osasuna,midfielder,13.2
+281,Darko Brasanac,30,CA Osasuna,midfielder,2.2
+282,Pablo Ibáñez,24,CA Osasuna,midfielder,0.44
+283,Roberto Torres,33,CA Osasuna,midfielder,3.3
+284,Aimar Oroz,20,CA Osasuna,midfielder,3.3
+285,Ez Abde,20,CA Osasuna,forward,8.8
+286,Rubén García,29,CA Osasuna,forward,8.8
+287,Moi Gómez,28,CA Osasuna,forward,8.8
+288,Kike Saverio,23,CA Osasuna,forward,0.22
+289,Kike Barja,25,CA Osasuna,forward,3.3
+290,Chimy Ávila,28,CA Osasuna,forward,11.0
+291,Ante Budimir,31,CA Osasuna,forward,6.6
+292,Kike García,32,CA Osasuna,forward,1.98
+293,Benjamin Lecomte,31,RCD Espanyol Barcelona,gk,5.5
+294,Álvaro Fernández,24,RCD Espanyol Barcelona,gk,4.4
+295,Joan García,21,RCD Espanyol Barcelona,gk,0.44
+296,Leandro Cabrera,31,RCD Espanyol Barcelona,defender,4.4
+297,Sergi Gómez,30,RCD Espanyol Barcelona,defender,3.3
+298,Fernando Calero,27,RCD Espanyol Barcelona,defender,1.98
+299,Adrià Pedrosa,24,RCD Espanyol Barcelona,defender,7.7
+300,Brian Oliván,28,RCD Espanyol Barcelona,defender,2.75
+301,Óscar Gil,24,RCD Espanyol Barcelona,defender,3.3
+302,Aleix Vidal,33,RCD Espanyol Barcelona,defender,2.2
+303,Vinicius Souza,23,RCD Espanyol Barcelona,midfielder,4.95
+304,Sergi Darder,28,RCD Espanyol Barcelona,midfielder,15.4
+305,Keidi Bare,25,RCD Espanyol Barcelona,midfielder,4.4
+306,Edu Expósito,26,RCD Espanyol Barcelona,midfielder,4.4
+307,Pol Lozano,23,RCD Espanyol Barcelona,midfielder,1.65
+308,Javi Puado,24,RCD Espanyol Barcelona,forward,8.8
+309,Nico Melamed,21,RCD Espanyol Barcelona,forward,8.25
+310,José Carlos Lazo,26,RCD Espanyol Barcelona,forward,2.75
+311,Martin Braithwaite,31,RCD Espanyol Barcelona,forward,6.6
+312,Joselu,32,RCD Espanyol Barcelona,forward,5.5
+313,Dani Gómez,24,RCD Espanyol Barcelona,forward,2.75
+314,Paulo Gazzaniga,30,Girona FC,gk,2.2
+315,Juan Carlos,34,Girona FC,gk,0.33
+316,Toni Fuidias,21,Girona FC,gk,0.33
+317,Santiago Bueno,23,Girona FC,defender,3.3
+318,David López,33,Girona FC,defender,1.98
+319,Bernardo Espinosa,33,Girona FC,defender,1.65
+320,Juanpe,31,Girona FC,defender,1.65
+321,Miguel Gutiérrez,21,Girona FC,defender,8.8
+322,Javi Hernández,24,Girona FC,defender,2.75
+323,Arnau Martínez,19,Girona FC,defender,6.6
+324,Yan Couto,20,Girona FC,defender,5.5
+325,Oriol Romeu,31,Girona FC,midfielder,5.5
+326,Ramón Terrats,22,Girona FC,midfielder,1.1
+327,Ibrahima Kébé,22,Girona FC,midfielder,0.66
+328,Yangel Herrera,24,Girona FC,midfielder,15.4
+329,Aleix García,25,Girona FC,midfielder,4.4
+330,Reinier,20,Girona FC,midfielder,8.8
+331,Borja García,31,Girona FC,midfielder,1.65
+332,Iván Martín,23,Girona FC,midfielder,0.88
+333,Manu Vallejo,25,Girona FC,forward,3.3
+334,Toni Villa,27,Girona FC,forward,2.75
+335,Samu Saiz,31,Girona FC,forward,1.1
+336,Rodrigo Riquelme,22,Girona FC,forward,4.4
+337,Valery Fernández,22,Girona FC,forward,0.88
+338,Taty Castellanos,24,Girona FC,forward,13.2
+339,Cristhian Stuani,36,Girona FC,forward,1.65
+340,Fernando Pacheco,30,UD Almería,gk,3.3
+341,Fernando Martínez,32,UD Almería,gk,1.1
+342,Diego Fuoli,25,UD Almería,gk,0.22
+343,Kaiky,18,UD Almería,defender,8.8
+344,Rodrigo Ely,28,UD Almería,defender,3.3
+345,Srdjan Babic,26,UD Almería,defender,3.3
+346,Chumi,23,UD Almería,defender,2.2
+347,Iván Martos,25,UD Almería,defender,0.44
+348,Sergio Akieme,24,UD Almería,defender,5.5
+349,Álex Centelles,23,UD Almería,defender,1.65
+350,Alejandro Pozo,23,UD Almería,defender,4.4
+351,Houboulang Mendes,24,UD Almería,defender,3.3
+352,Juanjo Nieto,28,UD Almería,defender,0.77
+353,Samú Costa,21,UD Almería,midfielder,6.6
+354,Iñigo Eguaras,30,UD Almería,midfielder,1.1
+355,Gonzalo Melero,28,UD Almería,midfielder,4.4
+356,Lucas Robertone,25,UD Almería,midfielder,4.4
+357,Arnau Puigmal,21,UD Almería,midfielder,1.65
+358,Gui Guedes,20,UD Almería,midfielder,1.65
+359,César de la Hoz,30,UD Almería,midfielder,1.1
+360,Largie Ramazani,21,UD Almería,forward,11.0
+361,Lázaro,20,UD Almería,forward,7.7
+362,Adrián Embarba,30,UD Almería,forward,4.4
+363,Francisco Portillo,32,UD Almería,forward,2.2
+364,Léo Baptistão,30,UD Almería,forward,1.65
+365,El Bilal Touré,21,UD Almería,forward,7.15
+366,Marko Milovanovic,19,UD Almería,forward,1.32
+367,Dyego Sousa,33,UD Almería,forward,1.1
+368,Stole Dimitrievski,28,Rayo Vallecano,gk,4.4
+369,Miguel Ángel Morro,22,Rayo Vallecano,gk,0.66
+370,Diego López,40,Rayo Vallecano,gk,0.55
+371,Alejandro Catena,28,Rayo Vallecano,defender,4.4
+372,Abdul Mumin,24,Rayo Vallecano,defender,3.3
+373,Florian Lejeune,31,Rayo Vallecano,defender,2.2
+374,Esteban Saveljich,31,Rayo Vallecano,defender,0.88
+375,Mario Suárez,35,Rayo Vallecano,defender,0.33
+376,Fran García,23,Rayo Vallecano,defender,8.25
+377,Pep Chavarría,24,Rayo Vallecano,defender,0.88
+378,Iván Balliu,30,Rayo Vallecano,defender,2.2
+379,Mario Hernández,23,Rayo Vallecano,defender,0.88
+380,Santi Comesaña,26,Rayo Vallecano,midfielder,4.4
+381,Unai López,27,Rayo Vallecano,midfielder,4.4
+382,Pathé Ciss,28,Rayo Vallecano,midfielder,4.4
+383,Óscar Valentín,28,Rayo Vallecano,midfielder,3.3
+384,Randy Nteka,24,Rayo Vallecano,midfielder,4.4
+385,Óscar Trejo,34,Rayo Vallecano,midfielder,3.3
+386,José Pozo,26,Rayo Vallecano,midfielder,1.32
+387,Álvaro García,30,Rayo Vallecano,forward,6.6
+388,Bebé,32,Rayo Vallecano,forward,0.88
+389,Isi Palazón,27,Rayo Vallecano,forward,5.5
+390,Salvi Sánchez,31,Rayo Vallecano,forward,2.2
+391,Raúl de Tomás,28,Rayo Vallecano,forward,13.2
+392,Sergio Camello,21,Rayo Vallecano,forward,4.4
+393,Radamel Falcao,36,Rayo Vallecano,forward,2.2
+394,Andrés Martín,23,Rayo Vallecano,forward,1.32
+395,Édgar Badía,30,Elche CF,gk,3.3
+396,Axel Werner,26,Elche CF,gk,0.88
+397,Enzo Roco,30,Elche CF,defender,2.2
+398,Diego González,27,Elche CF,defender,2.2
+399,Federico Fernández,33,Elche CF,defender,1.65
+400,Pedro Bigas,32,Elche CF,defender,1.1
+401,Gonzalo Verdú,34,Elche CF,defender,0.77
+402,John Nwankwo,22,Elche CF,defender,0.44
+403,Nicolás Fernández Mercau,22,Elche CF,defender,2.75
+404,Carlos Clerc,30,Elche CF,defender,2.2
+405,Pol Lirola,25,Elche CF,defender,6.6
+406,Helibelton Palacios,29,Elche CF,defender,1.32
+407,Omar Mascarell,29,Elche CF,midfielder,4.4
+408,Gerard Gumbau,27,Elche CF,midfielder,3.3
+409,Raúl Guti,25,Elche CF,midfielder,4.4
+410,Domingos Quina,22,Elche CF,midfielder,2.42
+411,Javier Pastore,33,Elche CF,midfielder,0.99
+412,Pere Milla,30,Elche CF,forward,3.3
+413,Tete Morente,25,Elche CF,forward,3.3
+414,Fidel,33,Elche CF,forward,2.2
+415,Álex Collado,23,Elche CF,forward,5.5
+416,Josan,32,Elche CF,forward,1.1
+417,Lucas Boyé,26,Elche CF,forward,13.2
+418,Ezequiel Ponce,25,Elche CF,forward,5.5
+419,Roger Martí,31,Elche CF,forward,4.4
+420,Predrag Rajković,27,RCD Mallorca,gk,9.9
+421,Dominik Greif,25,RCD Mallorca,gk,2.2
+422,Leo Román,22,RCD Mallorca,gk,0.33
+423,Martin Valjent,26,RCD Mallorca,defender,4.4
+424,Antonio Raíllo,31,RCD Mallorca,defender,2.2
+425,Matija Nastasić,29,RCD Mallorca,defender,1.65
+426,Franco Russo,28,RCD Mallorca,defender,1.32
+427,José Copete,23,RCD Mallorca,defender,1.32
+428,Braian Cufré,25,RCD Mallorca,defender,1.32
+429,Jaume Costa,34,RCD Mallorca,defender,1.32
+430,Pablo Maffeo,25,RCD Mallorca,defender,5.5
+431,Giovanni González,28,RCD Mallorca,defender,1.65
+432,Rodrigo Battaglia,31,RCD Mallorca,midfielder,1.98
+433,Iddrisu Baba,26,RCD Mallorca,midfielder,3.85
+434,Iñigo Ruiz de Galarreta,29,RCD Mallorca,midfielder,1.98
+435,Antonio Sánchez,25,RCD Mallorca,midfielder,1.65
+436,Clément Grenier,31,RCD Mallorca,midfielder,1.1
+437,Kang-in Lee,21,RCD Mallorca,midfielder,9.9
+438,Dani Rodríguez,34,RCD Mallorca,midfielder,1.32
+439,Amath Ndiaye,26,RCD Mallorca,forward,2.2
+440,Lago Júnior,31,RCD Mallorca,forward,1.32
+441,Vedat Muriqi,28,RCD Mallorca,forward,9.9
+442,Tino Kadewere,26,RCD Mallorca,forward,6.6
+443,Ángel Rodríguez,35,RCD Mallorca,forward,2.2
+444,Abdón Prats,29,RCD Mallorca,forward,1.65
+445,Sergio Asenjo,33,Real Valladolid CF,gk,4.4
+446,Jordi Masip,33,Real Valladolid CF,gk,0.77
+447,Joaquín Fernández,26,Real Valladolid CF,defender,3.08
+448,Zouhair Feddal,32,Real Valladolid CF,defender,2.75
+449,Javi Sánchez,25,Real Valladolid CF,defender,2.75
+450,Jawad El Yamiq,30,Real Valladolid CF,defender,1.32
+451,Lucas Olaza,28,Real Valladolid CF,defender,2.75
+452,Sergio Escudero,33,Real Valladolid CF,defender,1.98
+453,Luis Pérez,27,Real Valladolid CF,defender,1.65
+454,Iván Fresneda,18,Real Valladolid CF,defender,1.1
+455,Lucas Rosa,22,Real Valladolid CF,defender,0.165
+456,Mickaël Malsa,26,Real Valladolid CF,midfielder,3.3
+457,Monchu,23,Real Valladolid CF,midfielder,3.3
+458,Kike Pérez,25,Real Valladolid CF,midfielder,2.75
+459,Álvaro Aguado,26,Real Valladolid CF,midfielder,2.75
+460,Roque Mesa,33,Real Valladolid CF,midfielder,2.75
+461,Anuar,27,Real Valladolid CF,midfielder,1.1
+462,Kenedy,26,Real Valladolid CF,forward,7.7
+463,Gonzalo Plata,22,Real Valladolid CF,forward,6.6
+464,Óscar Plano,31,Real Valladolid CF,forward,2.75
+465,Iván Sánchez,30,Real Valladolid CF,forward,0.88
+466,Shon Weissman,26,Real Valladolid CF,forward,8.8
+467,Sergi Guardiola,31,Real Valladolid CF,forward,3.3
+468,Juanjo Narváez,27,Real Valladolid CF,forward,1.65
+469,Sergio León,33,Real Valladolid CF,forward,1.32
+470,Jeremías Ledesma,29,Cádiz CF,gk,6.6
+471,David Gil,28,Cádiz CF,gk,0.88
+472,Fali,29,Cádiz CF,defender,2.75
+473,Víctor Chust,22,Cádiz CF,defender,2.75
+474,Juan Cala,32,Cádiz CF,defender,0.99
+475,Luis Hernández,33,Cádiz CF,defender,0.88
+476,Momo Mbaye,24,Cádiz CF,defender,0.44
+477,Alfonso Espino,30,Cádiz CF,defender,5.5
+478,Santiago Arzamendia,24,Cádiz CF,defender,1.98
+479,Joseba Zaldua,30,Cádiz CF,defender,4.4
+480,Iza Carcelén,29,Cádiz CF,defender,1.65
+481,Antonio Blanco,22,Cádiz CF,midfielder,5.5
+482,Tomás Alarcón,23,Cádiz CF,midfielder,3.3
+483,Jon Ander Garrido,33,Cádiz CF,midfielder,0.44
+484,José Mari,34,Cádiz CF,midfielder,0.44
+485,Rubén Alcaraz,31,Cádiz CF,midfielder,2.75
+486,Fede San Emeterio,25,Cádiz CF,midfielder,1.65
+487,Álex Fernández,30,Cádiz CF,midfielder,5.5
+488,Théo Bongonda,26,Cádiz CF,forward,6.6
+489,Awer Mabil,27,Cádiz CF,forward,1.98
+490,Brian Ocampo,23,Cádiz CF,forward,2.2
+491,Iván Alejo,27,Cádiz CF,forward,1.32
+492,Choco Lozano,29,Cádiz CF,forward,3.3
+493,Lucas Pérez,34,Cádiz CF,forward,2.75
+494,Rubén Sobrino,30,Cádiz CF,forward,2.2
+495,Álvaro Negredo,37,Cádiz CF,forward,1.65
+496,Álvaro Giménez,31,Cádiz CF,forward,1.1

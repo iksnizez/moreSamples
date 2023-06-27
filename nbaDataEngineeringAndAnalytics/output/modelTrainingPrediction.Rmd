@@ -1,0 +1,163 @@
+---
+title: "MODEL TRAINING AND PREDICTION"
+output: html_notebook
+---
+
+ This notebook will train a model that can be used to assist in finding 
+ international players who may be ready for the NBA
+
+```{r}
+library(caret)
+library(pROC)
+library(glmnet)
+library(randomForest)
+
+# IMPORT DATA THAT WAS FORMATTED IN creatingModelDataSet.Rmd
+
+training_path <-  "/data/international_train_data.csv"
+prediction_path  <-  "/data/international_test_data.csv"
+
+dir_home <- getwd()
+df_training <- read.csv(paste0(dir_home, training_path)) %>%
+    filter(games >10)
+df_prediction <- read.csv(paste0(dir_home, prediction_path)) %>%
+    filter(games >10)
+```
+
+Splitting the training set into train/test
+
+``` {r}
+
+set.seed(15)
+
+df_training <- df_training 
+
+trainIdx <- createDataPartition(df_training$nba, 
+                                p = 0.7,
+                                list= FALSE,
+                                times = 1)
+
+# data splits
+df_train <- df_training[trainIdx,] %>% select(!c(first_name, last_name)) 
+df_test <- df_training[-trainIdx,] %>% select(!c(first_name, last_name))
+
+#function to handle log.reg results
+err_metrics=function(CM)
+{
+  TN =CM[1,1]
+  TP =CM[2,2]
+  FP =CM[1,2]
+  FN =CM[2,1]
+  precision =(TP)/(TP+FP)
+  recall_score =(FP)/(FP+TN)
+  f1_score=2*((precision*recall_score)/(precision+recall_score))
+  accuracy_model  =(TP+TN)/(TP+TN+FP+FN)
+  False_positive_rate =(FP)/(FP+TN)
+  False_negative_rate =(FN)/(FN+TP)
+  print(paste("Precision : ",round(precision,2)))
+  print(paste("Accuracy : ",round(accuracy_model,2)))
+  print(paste("Recall : ",round(recall_score,2)))
+  print(paste("False Positive rate : ",round(False_positive_rate,2)))
+  print(paste("False Negative rate : ",round(False_negative_rate,2)))
+  print(paste("f1 score : ",round(f1_score,2)))
+}
+
+
+```
+
+Training the model
+
+I am starting with a logistic regression to classify a players season stats as either NBA worthy (1) or not (0). I have included 28 independent variables on my initial run and will reduce them if needed per the results
+
+I also filtered out players with less than 10 games played.
+
+```{r warning=FALSE}
+# logistic regression model using all 29 inputs
+model_baseline_glm <-  glm(nba ~ .,
+                   data = df_train,
+                   family="binomial")
+
+summary(model_baseline_glm)
+
+# predicting with training test set
+pred_baseline_glm <- predict(model_baseline_glm, 
+                             newdata =df_test[-29],
+                             type='response')
+
+# converting output to classification based on cutoff
+cutoff <-  0.50
+pred_baseline_glm <- ifelse(pred_baseline_glm > cutoff, 1, 0)
+results <- table(df_test[,29], pred_baseline_glm)
+
+
+print("CONFUSION MATRIX:")
+results
+
+err_metrics(results)
+
+roc_score <- roc(df_test[,29], pred_baseline_glm)
+plot(roc_score)
+
+
+```
+
+The base line model is showing a lot of insignificant independents. I will run the model again without them. It has 5 True positives, 8 False Negatives, and 6 false positives.  I will try to improve on that in my next iteration
+
+``` {r}
+# logistic regression model using reduced inputs based of significance from first run results
+model_reduced_glm <-  glm(nba ~ games + points  + minutes + turnovers + assists + defensive_rebounds + offensive_rebounds  + possessions + age,
+                   data = df_train,
+                   family="binomial")
+
+summary(model_reduced_glm)
+
+# predicting with training test set
+pred_reduced_glm <- predict(model_reduced_glm, 
+                             newdata =df_test[-29],
+                             type='response')
+
+# converting output to classification based on cutoff
+cutoff <-  0.53
+pred_reduced_glm <- ifelse(pred_reduced_glm > cutoff, 1, 0)
+results <- table(df_test[,29], pred_reduced_glm)
+
+
+print("CONFUSION MATRIX:")
+results
+
+err_metrics(results)
+
+roc_score <- roc(df_test[,29], pred_reduced_glm)
+plot(roc_score)
+
+
+```
+
+The reduced model uses less inputs than the baselineand has a solid improvement over the the baseline. It reduced the false positive classifications from 5 to 0, but the False Negatives did not change. I still view this as an improvement because we reduced the number of players that would be busts (False Postives) while still maintaining a 6 true postitives. 6 players out of 13 to actual to target is a good place to start deeper analysis.
+
+[Exploring the classification threshold allowed for further improvement on the model. Using a threshold of >64% reduced false postives to 0]
+
+
+Predicting 2022 international players to target using the trained model
+
+``` {r}
+# predicting with 2021 international players that were not used in training
+pred_reduced_glm <- predict(model_reduced_glm, 
+                             newdata =df_prediction,
+                             type='response')
+
+
+#combing predictions to the 2022 player list
+player_preds <- cbind(df_prediction, pred_reduced_glm) %>%
+    arrange(desc(pred_reduced_glm)) %>%
+    filter(pred_reduced_glm > cutoff)
+
+
+dir_home <- getwd()
+write.csv(player_preds, paste0(dir_home,"/data/target_players.csv"), row.names = FALSE)
+
+```
+
+This model outputs 28 players out of 524 that might be ready for the NBA. Their data is saved to output/data/target_players. I would have liked to used different modeling techniques but ran out of time.  While my model does a decent job at minimizing false positives and hitting over half true positives in training, the inputs for it seem suspect. Age really has the most pull on the model out put and some of the players predicted to succeed have seemingly low box score stats. If I had more time I would explore different models and different inputs to hopefully find the most deserving players for analysis. 
+
+With that said, given the performance on the training data, I think the top ten on the target player list are a good starting point for players to consider for the NBA.  target player is sorted by best prospect to worst.

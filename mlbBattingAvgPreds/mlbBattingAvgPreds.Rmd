@@ -1,0 +1,231 @@
+---
+title: "PREDICTING END OF SEASON BATTING AVG USING EARLY SEASON PERFORMANCE"
+output:
+  html_document:
+    df_print: paged
+  html_notebook: default
+  
+---
+notes: 
+outside of this project format I would have liked to include historical data from previous years for each player. The instructions only made reference to adding outside data from Mar-Apr 2018 so I chose to stay within that time frame. 
+
+```{r imports, message=FALSE, warning=FALSE}
+#import libraries
+library('baseballr')
+library('dplyr')
+library('lubridate')
+library('e1071')
+library('caret')
+library('corrplot')
+library("randomForest")
+
+```
+
+Importing the batting.csv data set 
+
+```{r file import}
+df <- read.csv('batting.csv')
+```
+
+Pulling additional batter data from baseball savant.
+
+```{r outside data, message=FALSE, warning=FALSE}
+# setting up params for pulling in extra batting data. Savant limits to 40k results
+# need loop through the date range in order to aggregate all of the at bats
+starts <- c('2018-03-29','2018-04-04','2018-04-10','2018-04-16','2018-04-22','2018-04-28')
+ends <- c('2018-04-03','2018-04-09','2018-04-15','2018-04-21','2018-04-27','2018-04-30')
+#start the batting df so at bats can be added 
+xtra_bats <- scrape_statcast_savant_batter_all(start_date = starts[1],
+                                          end_date = ends[1])
+#loop through the remaining dates to finish the at bat data
+for (i in 2:6) {
+    old <- dim(xtra_bats)[1]
+    xtra_bats <- xtra_bats %>% bind_rows(scrape_statcast_savant_batter_all(start_date = starts[i],
+                                                                 end_date = ends[i]))
+    #this print is to make sure less than 40k was appended so we don't miss out on any bats
+    print(dim(xtra_bats)[1] - old)
+}
+
+```
+
+Inspecting the outside data for anomalies
+
+```{r ext. data inspection}
+xtra_bats %>% 
+    select('barrel','launch_speed','launch_angle','woba_value','woba_denom') %>% 
+    summary()
+```
+
+There appear to be some reading errors in the launch speed and launch angle. They will need to be filtered out. 
+
+```{r filtering ext. data}
+xtra_bats <- xtra_bats %>% 
+    filter(launch_angle < 360|is.na(launch_angle)) %>% 
+    filter(is.na(launch_speed)|launch_speed <400)
+xtra_bats %>% 
+    select('barrel','launch_speed','launch_angle','woba_value','woba_denom') %>%
+    summary()
+```
+
+Grouping the exterior data by batter and creating avg and sum fields for wOBA, launch angle, launch speed, and barrels. Also adding the fangraphs ID so this new data can be joined back to the original batters.csv
+
+```{r aggregating ext. stats by batter, message=FALSE, warning=FALSE}
+xtra_stats <- xtra_bats %>%
+    group_by(batter) %>%
+    select('batter', 'barrel','launch_speed','launch_angle','woba_value','woba_denom') %>% 
+    summarize('ï..playerid' = as.numeric(playername_lookup(batter)[,'key_fangraphs']),
+              'MarApr_WOBA' = sum(as.numeric(woba_value),na.rm = TRUE)/sum(as.numeric(woba_denom), na.rm= TRUE),
+              'MarApr_LA' = round(mean(launch_angle, na.rm = TRUE),1),
+              'MarApr_LS' = round(mean(launch_speed, na.rm = TRUE),1),
+              'MarApr_BARREL' = sum(barrel, na.rm = TRUE)
+    ) 
+summary(xtra_stats)
+```
+
+Joining the external data with the batter.csv data using the batter id
+
+```{r joining datasets}
+df <- xtra_stats %>% right_join(y=df, by= 'ï..playerid')
+df <- as.data.frame(df)
+```
+
+Data variable exploration to see if any transformations are needed
+
+```{r exploration}
+# checking for NAs
+print(sum(is.na(df)))
+#apply(df, 2, function(x){sum(is.na(x))}) #not needed to find cols since no NAs
+
+# exploring variable distributions  - removing the playerId, Name, Team, and Full season AVG
+df_explore <- df[,-c(1,2,7,8,34)]
+# correlations - to look for any unexpected pairs
+df[,-c(1,2,7,8)] %>% 
+    cor() %>% 
+    corrplot()
+#variable distributions - raw
+boxplot(df_explore)
+
+#variable distributions after transforms
+df_explore %>% 
+    scale(center= TRUE, scale= TRUE) %>%
+    boxplot(las=3)
+
+#skewness ratio check
+df_explore %>% 
+    apply(2, function(x){
+                         max(x) / min(x)
+             }
+    )
+
+
+```
+
+The vars have some extreme differences in scale and range. This will require scaling and centering before being used in regression models. The variables are centered around mean and then scaled to z-score. Looking at the box plots for scaled and center variables  provides a better picture of the data we have to work with. 
+
+Skewness can be seen in many of the variables with medians off of the centered mean of 0. This skewness will also have to be corrected for modeling. Checking calculated skewness ratios by looking at the max value in each column divided by the min value. over 20 = significant, over 5= large it looks like there are some columns with definite skewness issues 
+
+```{r model prep, message=FALSE, warning=FALSE}
+# splitting into response and predictor vars
+x <- df[,-c(1,2,7,8,34)]
+y <- df[,34]
+
+## models ##
+# training/testing splits
+sample_size = floor(0.75 * nrow(df))
+set.seed(17)
+trainingRows <- sample(seq_len(nrow(df)), size = sample_size)
+trainX <- x[trainingRows,]
+testX <- x[-trainingRows,]
+trainY <- y[trainingRows]
+testY <- y[-trainingRows]
+# preprocssing
+pp <- c('BoxCox', 'center', 'scale')
+# resampling technique
+ctrl <- trainControl(method = "cv", number = 10)
+
+```
+
+The data is split at 75%/25% ratio for training/testing. The models are trained using 10-fold cross-validation and the data will be preprocessed for centering, scaling, and skewness
+
+A baseline model of linear regression was created compare other models against. There are no significant variables. 
+
+```{r base line model}
+# training
+olsFit <- train(trainX, trainY, method = 'lm',
+             preProcess = pp,
+             trControl = ctrl
+             )
+summary(olsFit)
+#testing
+olsPred <- predict(olsFit, testX)
+olsValues <- data.frame(obs=testY, pred=olsPred)
+defaultSummary(olsValues)
+
+#residual analysis
+par(mfrow=c(1,2))
+plot(y=trainY, x = predict(olsFit),
+     xlab = "Predicted", ylab = "Observed")
+plot(y = resid(olsFit),  x=  predict(olsFit), 
+     xlab = "Predicted", ylab = "Residuals")
+par(mfrow=c(1,1))
+
+```
+
+Second model - elasti net - fitted across multiple tuning parameters to fit for combos of Ridge and LASSO regressions.
+
+```{r elasinet model}
+# tuning parameters for elasti net 
+elastiTuning <- expand.grid(.lambda = c(0, 0.01, 0.1), 
+                            .fraction = seq(.05, 1, length = 15))
+# training model
+elastiFit <- train(x=trainX, y=trainY, method="enet",
+                   tuneGrid = elastiTuning,
+                   trControl = ctrl,
+                   preProc = pp)
+#testing model
+elastiPred <- predict(elastiFit, testX)
+plot(elastiFit)
+elastiValues <- data.frame(obs=testY, pred=elastiPred)
+#results
+defaultSummary(elastiValues)
+
+#residual analysis
+par(mfrow=c(1,2))
+plot(y=trainY, x = predict(elastiFit),
+     xlab = "Predicted", ylab = "Observed")
+plot(y = resid(elastiFit),  x=  predict(elastiFit), 
+     xlab = "Predicted", ylab = "Residuals")
+par(mfrow=c(1,1))
+```
+
+Final Model - non-linear - random forest
+
+####### This taks about 10-15 minutes to run ###########
+
+```{r random forest model}
+mtryGrid <- data.frame(mtry = ncol(trainX))
+
+### Tune the model using cross-validation
+set.seed(17)
+rfTuned <- train(x = trainX, y= trainY,
+                 method = "rf",
+                 tuneLength = 5,
+                 ntree = 1000,
+                 importance = TRUE)
+rfTuned
+plot(rfTuned$finalModel)
+plot(rfTuned)
+#predict new data
+rfPred <- predict(rfTuned, testX)
+rfValues <- data.frame(obs=testY, pred=rfPred)
+#results
+defaultSummary(rfValues)
+
+
+
+```
+
+None of these model performed well on the training or testing sets. The highest R squared came in around 32 on the training set but performed worse than the regressions on the test set. My next steps would be to fine tune the predictor variable set and explore some other regression (PCR) and non-linear (MARS, Boosted Trees, Neural Nets) to see if better relationships can be extracted from the data. 
+
+Limitations of the dataset:
+just over 1 month of games makes for a relatively small sample set. I would think that working in previous years data sets and working with game-to-game data instead of averages could lead to improvements on the existing/new models.

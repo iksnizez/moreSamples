@@ -1,0 +1,203 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This notebook works through the international player data with the end goal of creating a model for finding international players to target for the NBA. 
+
+All of the data will be retrieved from the database populated with the json files and formatted/cleaned so it can be fed into a model
+
+```{r database access, warning=FALSE}
+
+library(dplyr)
+library(DBI)
+library(RPostgreSQL)
+
+####
+# CONNECT TO DB #
+####
+
+# db creds
+db_user <- #
+db_pw <- #
+db_name <- #
+db_port <- #
+db_host <- #
+
+# connecting to db
+tryCatch({
+    conn <- dbConnect(RPostgreSQL::PostgreSQL(), 
+                      dbname = db_name,
+                      host = db_host, 
+                      port = db_port,
+                      user = db_user, 
+                      password = db_pw
+                      #user= rstudioapi::askForPassword("Database username"),
+                      #password = rstudioapi::askForPassword("Database password")
+    )
+    print("Connected")
+},
+error=function(cond) {
+    print("Unable to connect....")
+})
+
+```
+
+I chose to focus my analysis on players that played internationally prior to playing in the NBA. 
+
+Using the query below, these target players can be extracted from the database by comparing the max.(last) season they played internationally against their min.(first) season in the NBA.  If max < min, they make the filtered set.
+
+```{r international play before nba}
+
+# INTERNATIONAL PLAYERS WHO WENT FROM INTERNATIONAL to THE NBA within 2 years
+# of LAST INTERNATIONAL EXP.
+query_join = "
+
+SELECT inter.*, nb.first_nba_season
+FROM
+
+    (SELECT intnl.first_name, intnl.last_name, max(intnl.season)         last_international_season FROM international_box_player_season intnl
+    WHERE EXISTS 
+    (SELECT first_name, last_name FROM nba_box_player_season nba
+    WHERE (nba.first_name = intnl.first_name) AND (nba.last_name = intnl.last_name))
+    GROUP BY first_name, last_name) inter
+
+    LEFT JOIN 
+    
+    (SELECT nba.first_name, nba.last_name, min(nba.season) first_nba_season FROM nba_box_player_season nba
+    WHERE EXISTS 
+    (SELECT first_name, last_name FROM international_box_player_season intnl
+    WHERE (nba.first_name = intnl.first_name) AND (nba.last_name = intnl.last_name))
+    GROUP BY first_name, last_name) nb 
+
+    ON
+    (inter.first_name = nb.first_name and inter.last_name = nb.last_name)
+WHERE
+  inter.last_international_season <= nb.first_nba_season 
+"
+df_international_first <- dbGetQuery(conn, query_join)
+df_international_first <- df_international_first %>% mutate(nba = 1) %>%
+  select(first_name, last_name, nba)
+
+# retrieving the player birth dates to convert
+df_player <- dbGetQuery(conn, "SELECT * FROM player")
+
+```
+
+The international data needs to be labeled for model training. The players
+gathered from the criteria above will be labeled as positive cases 
+
+```{r labeling training data}
+#international players data prior to 2021
+query_join = "
+SELECT intnl.* FROM international_box_player_season intnl WHERE season <2021
+"
+df_int_nba <- dbGetQuery(conn, query_join)
+
+# cleaning and formatting
+df_int_nba <- df_int_nba %>% 
+  # removing unused cols
+  select(
+  !c(season_type, team, offensive_fouls,ejections,
+     points_off_turnovers, points_in_paint, second_chance_points,
+     fast_break_points, estimated_possessions, usage_percentage, 
+     true_shooting_percentage, three_point_attempt_rate,
+     free_throw_rate,
+     offensive_rebounding_percentage, defensive_rebounding_percentage,
+     total_rebounding_percentage, assist_percentage,steal_percentage,
+     block_percentage, internal_box_plus_minus, turnover_percentage,
+     league
+    )
+  ) %>% 
+  #aggregating all leagues from a single season for each player
+  group_by(first_name, last_name, season) %>% 
+  summarise_at(c(1:27), sum) %>% 
+  
+  #calculating the age using birth year and season year
+  left_join(df_player, by= c('first_name'='first_name', 'last_name'='last_name')) %>%
+  mutate(birth_year = as.integer(format(as.Date(birth_date), format = "%Y"))) %>%
+  mutate(age = season - birth_year) %>%
+  select(!c(birth_year, birth_date)) %>%
+  left_join(df_international_first, by= c('first_name'='first_name', 'last_name'='last_name'))
+
+
+
+```
+ 
+I am only going to look at the last international season of a player
+If a player was active internationally from 2012-2020, then I will
+only train my model with 2020 season
+
+```{r}
+
+#returning only the latest season for international players
+df_int_nba <- df_int_nba %>% 
+  group_by(first_name, last_name) %>% 
+  top_n(1, season) %>%
+  mutate(nba = case_when(nba == 1 ~ 1, TRUE ~ 0)) %>%
+  select(!c(season))
+
+
+# EXPORTING THE LABELED DATA TO TRAIN A MODEL
+dir_home <- getwd()
+write.csv(df_int_nba, paste0(dir_home,"/data/international_train_data.csv"), row.names = FALSE)
+```
+
+
+
+Creating the data set to use for predicting after the model is trained:
+
+  all international players who haven't played in the NBA with their 
+  last season internationally = 2021
+
+```{r}
+# retrieve players not in the nba that played internationally in 2021
+query_join = "
+ SELECT *
+ FROM international_box_player_season intnl
+ WHERE NOT EXISTS 
+    (SELECT first_name, last_name 
+     FROM nba_box_player_season nba
+     WHERE 
+       (nba.first_name = intnl.first_name) 
+     AND 
+       (nba.last_name = intnl.last_name))
+  AND
+   season = 2021
+"
+df_test <- dbGetQuery(conn, query_join)
+
+# removing unused fields
+df_int_test <- df_test %>% select(
+  !c(season_type, team, offensive_fouls,ejections,
+     points_off_turnovers, points_in_paint, second_chance_points,
+     fast_break_points, estimated_possessions, usage_percentage, 
+     true_shooting_percentage, three_point_attempt_rate,
+     free_throw_rate,
+     offensive_rebounding_percentage, defensive_rebounding_percentage,
+     total_rebounding_percentage, assist_percentage,steal_percentage,
+     block_percentage, internal_box_plus_minus, turnover_percentage
+     )
+  )  %>% 
+  
+  # summing stats together from the different leagues but same season
+  group_by(first_name, last_name, season) %>% 
+  summarise_at(c(2:28), sum) %>% 
+  
+  #calculating the age using birth year and season year
+  left_join(df_player, by= c('first_name'='first_name', 'last_name'='last_name')) %>%
+  mutate(birth_year = as.integer(format(as.Date(birth_date), format = "%Y"))) %>%
+  mutate(age = season - birth_year) %>%
+  select(!c(birth_year, season, birth_date))
+
+# saving data set for 2021 international players.
+# they will be used on the trained model
+dir_home <- getwd()
+write.csv(df_int_test, paste0(dir_home,"/data/international_test_data.csv"), row.names = FALSE)
+
+remove(df_player)
+remove(df_test)
+
+```
+
+
