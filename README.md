@@ -1,6 +1,6 @@
 # SAMPLE PROJECTS USING SPORTS DATA 
 
-\> the projects listed below cover the full pipeline of data analytics and data engineering within multiple sports
+\> the projects listed below cover the full pipeline of data analytics and data engineering within multiple sports. Python, R, and SQL are used.
 <ul> 
     <li>webscraping</li> 
     <li>API</li> 
@@ -67,7 +67,7 @@
         This project uses generated data to populate a freshly created database and demonstrate a sample query for player analysis. Part 2 demonstrates a created functions to calculate a new stat from data.
         </li>
         <li>
-        #python #dataEngineering #databaseCreation #databaseQuery #stats
+        #python #SQL #dataEngineering #databaseCreation #databaseQuery #stats
         </li>
         </ul>    
     </li>
@@ -78,7 +78,7 @@
         This project hits the statcast API and populates a database with the data for later use
         </li>
         <li>
-        #python # API #dataEngineering #databaseCreation
+        #python #SQL #API #dataEngineering #databaseCreation
         </li>
         </ul>    
     </li>    
@@ -129,7 +129,7 @@
         The project encompasses the entire data pipeline from acquisition to modeling. The data is retrieved from a remote database, processed, explored and saved. The saved data is then used to predictive model if an international player will be successful in the NBA.
         </li>
         <li>
-        #R #dataEngineering #API #databaseQuery #dataExploration #dataCleaning #modeling #modelAnalysis
+        #R #SQL #dataEngineering #API #databaseQuery #dataExploration #dataCleaning #modeling #modelAnalysis
         </li>
         </ul>
     </li>
@@ -141,7 +141,7 @@
         This project uses scraps websites to that is input into a newly created database for analysis
         </li>
         <li>
-        #python #webscraping #dataEngineering #databaseCreation #databasePopulation
+        #python #SQL #webscraping #dataEngineering #databaseCreation #databasePopulation
         </li>
         </ul>
     </li>   
