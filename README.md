@@ -1,6 +1,6 @@
 # SAMPLE PROJECTS USING SPORTS DATA 
 
-\> the projects listed below cover the full pipeline of data analytics and data engineering within multiple sports. Python, R, and SQL are used.
+\> the projects listed below cover the full pipeline of data analytics and data engineering within multiple sports. Python, R, and SQL are used. ***** These are not actively maintained so sites may have changed causing errors in scraping. ******
 <ul> 
     <li>webscraping</li> 
     <li>API</li> 
